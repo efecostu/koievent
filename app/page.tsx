@@ -4,6 +4,8 @@ import { Plus_Jakarta_Sans } from "next/font/google"
 import { Instagram, Mail, Phone } from "lucide-react"
 import EventGallery from "@/components/event-gallery"
 import UpcomingEvent from "@/components/upcoming-event"
+import Header from "@/components/Header"
+import BackgroundMusic from "@/components/BackgroundMusic"
 
 const plusJakarta = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
@@ -14,8 +16,11 @@ const plusJakarta = Plus_Jakarta_Sans({
 export default function Home() {
   return (
     <main className={`flex min-h-screen flex-col ${plusJakarta.className}`}>
+      <Header />
+      <BackgroundMusic />
+      
       {/* Hero Section */}
-      <section className="relative h-screen flex flex-col items-center justify-center text-center px-4 md:px-8">
+      <section id="hero" className="relative h-screen flex flex-col items-center justify-center text-center px-4 md:px-8">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -27,26 +32,39 @@ export default function Home() {
             <source src="/koivideo.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <Image src="/koi-logo.png" alt="KOI Event Logo" width={150} height={150} className="mx-auto mb-8" />
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight gradient-text">
-            KOI excellence
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 font-medium">
-            Eğlence ve topluluğu bir araya getiriyoruz. #koiexcellence #koistandart
-          </p>
-          <Link
-            href="https://instagram.com/koievent"
-            target="_blank"
-            className="bg-[#B31E1E] hover:bg-[#9a1919] text-white font-semibold py-3 px-8 rounded-full transition-all transform hover:scale-105"
-          >
-            Bize Katıl
-          </Link>
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center justify-center min-h-screen">
+          <div className="flex flex-col items-center mt-[-100px]">
+            {/* Hero logo temporarily removed */}
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[rgb(235,93,0)] via-[rgb(255,123,0)] to-[rgb(235,93,0)] text-transparent bg-clip-text transform hover:scale-105 transition-transform duration-300">
+              KOI excellence
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 mb-4 font-medium">
+              Eğlence ve topluluğu bir araya getiriyoruz
+            </p>
+            <p className="text-lg md:text-xl text-[rgb(235,93,0)] font-semibold mb-4 tracking-wider animate-pulse">
+              #koiexcellence #koistandart
+            </p>
+            <p className="text-lg md:text-xl text-white font-semibold tracking-wider hover:text-[rgb(235,93,0)] transition-colors">
+              <a href="https://instagram.com/koievent" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2">
+                <Instagram size={24} />
+                @koievent
+              </a>
+            </p>
+          </div>
+          <div className="absolute bottom-48">
+            <Link
+              href="https://instagram.com/koievent"
+              target="_blank"
+              className="bg-[#B31E1E] hover:bg-[#9a1919] text-white font-semibold py-3 px-8 rounded-full transition-all transform hover:scale-105"
+            >
+              Bize Katıl
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* About Us Section */}
-      <section className="py-20 px-4 md:px-8 bg-white">
+      <section id="about" className="py-20 px-4 md:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">Biz Kimiz?</h2>
           <p className="text-lg md:text-xl text-gray-700 mb-10">
@@ -68,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* Events Gallery Section */}
-      <section className="py-20 px-4 md:px-8 bg-gray-50">
+      <section id="events" className="py-20 px-4 md:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Etkinliklerimiz</h2>
           <EventGallery />
@@ -76,17 +94,17 @@ export default function Home() {
       </section>
 
       {/* Upcoming Event Section */}
-      <section className="py-20 px-4 md:px-8 bg-white">
+      <section id="upcoming" className="py-20 px-4 md:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">
-            Sıradaki Buluşma: KOI x PERSONA
+            Sıradaki Buluşma: KOIevent Yatch Party
           </h2>
           <UpcomingEvent />
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 md:px-8 bg-gray-50">
+      <section id="contact" className="py-20 px-4 md:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Bize Ulaşın</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -136,7 +154,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <Image src="/koi-logo.png" alt="KOI Event Logo" width={80} height={80} />
+              <Image src="/koi-logo.jpeg" alt="KOI Event Logo" width={80} height={80} />
             </div>
             <div className="flex space-x-6 mb-6 md:mb-0">
               <a href="https://instagram.com/koievent" target="_blank" aria-label="Instagram" rel="noreferrer">
