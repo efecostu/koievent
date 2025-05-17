@@ -51,6 +51,13 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
+            <Link
+              href="/KOIEventSponsorluk2025.pdf"
+              target="_blank"
+              className={`font-medium transition-colors ${isScrolled ? 'text-gray-800 hover:text-[#B31E1E]' : 'text-white hover:text-gray-300'}`}
+            >
+              Sponsorluk Dosyası
+            </Link>
             <button
               onClick={() => scrollToSection('about')}
               className={`font-medium transition-colors ${isScrolled ? 'text-gray-800 hover:text-[#B31E1E]' : 'text-white hover:text-gray-300'}`}
@@ -92,6 +99,13 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white">
             <div className="px-2 pt-2 pb-3 space-y-1">
+              <Link
+                href="/KOIEventSponsorluk2025.pdf"
+                target="_blank"
+                className="block w-full text-left px-3 py-2 text-gray-800 hover:text-[#B31E1E] font-medium"
+              >
+                Sponsorluk Dosyası
+              </Link>
               <button
                 onClick={() => scrollToSection('about')}
                 className="block w-full text-left px-3 py-2 text-gray-800 hover:text-[#B31E1E] font-medium"
